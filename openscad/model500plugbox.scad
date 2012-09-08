@@ -8,14 +8,14 @@ module plugbox()
 	/* Drill a hole all the way through the object. */
 	module drill_full(x,y) {
 		translate([x,y,0]) {
-			cylinder(r=1.8, h=55, center=true);
+			cylinder(r=1.8, h=55, $fn=100, center=true);
 		}
 	}
 
 	/* Drill a hole that only extends to the top of the cavity. */
 	module drill_partial(x,y,) {
 		translate([x,y,0]) {
-			cylinder(r=2.5, h=height-5, center=true);
+			cylinder(r=2.5, h=height-5, $fn=100, center=true);
 		}
 	}
 
