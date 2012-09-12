@@ -1,10 +1,14 @@
 
+
 module plugbox()
 {
 
 	size = 50;
 	height=20;
 	stdoff=35;
+
+   
+
 	/* Drill a hole all the way through the object. */
 	module drill_full(x,y) {
 		translate([x,y,0]) {
@@ -36,6 +40,9 @@ module plugbox()
 				cylinder(r=3.5,h=height,$fn=100,center=true);
 			}
 		}
+
+
+
 		/* 
 			Hollow out a shallow base.  
 			The circuit board will sit here.  
@@ -71,7 +78,29 @@ module plugbox()
 		drill_partial(-stdoff/2, stdoff/2);
 		drill_partial(stdoff/2, -stdoff/2);
 		drill_partial(-stdoff/2, -stdoff/2);
+
+		translate([-7,size/2,height/2]) {	
+			scale([.02,.026,.02]){
+				rotate(90, [1,0,0]) {
+					rotate(180, [0,0,1]) {
+						rotate(180, [0,1,0]) {
+							 linear_extrude($fn=100, height=20)  import ("w88.dxf");
+						}
+					}
+				}
+			}
+		}    
+		translate([7,-size/2,height/2]) {	
+			scale([.02,.026 ,.02]){
+				rotate(90, [1,0,0]) {
+					rotate(180, [0,0,1]) {
+						linear_extrude($fn=100, height=20)  import ("w88.dxf");
+					}
+				}
+			}
+		}
 	}
+
 
 
 }
