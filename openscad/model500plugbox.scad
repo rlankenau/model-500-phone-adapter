@@ -60,8 +60,8 @@ module plugbox()
 		}
 
 		/* Create holes for plug */
-		drill_full(9.26, -7.65);
-		drill_full(9.26, 7.65);
+		drill_full(6.26, -7.65);
+		drill_full(6.26, 7.65);
 		drill_full(-9.26, 6.05);
 		drill_full(-9.26, -6.05);
 
